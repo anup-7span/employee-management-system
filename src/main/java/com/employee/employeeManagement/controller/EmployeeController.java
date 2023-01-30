@@ -4,6 +4,7 @@ import com.employee.employeeManagement.entity.Employee;
 import com.employee.employeeManagement.service.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -76,5 +77,17 @@ public class EmployeeController {
     @GetMapping("/employeeNameLike/{employeeName}")
     public List<Employee> findByEmployeeNameLike(@PathVariable String employeeName) {
         return service.findByEmployeeNameLike(employeeName);
+    }
+
+    //pageable
+    @GetMapping("/pageable")
+    public Page<Employee> pageRecords(@RequestParam Integer page, Integer size){
+        return service.pageable(page,size);
+    }
+
+    //sorting
+    @GetMapping("/pageableSort")
+    public Page<Employee> pageableSort(@RequestParam Integer page, Integer size){
+        return service.pageableSort(page,size);
     }
 }
