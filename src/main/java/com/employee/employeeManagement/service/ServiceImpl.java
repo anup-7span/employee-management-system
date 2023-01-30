@@ -40,4 +40,36 @@ public class ServiceImpl implements EmployeeService{
         employeeRepo.deleteById(employeeId);
         return "Employee Deleted:-"+employeeId;
     }
+
+    //find by name
+    @Override
+    public List<Employee> findByName(String employeeName) {
+        List<Employee> emp=employeeRepo.findByEmployeeName(employeeName);
+        return emp;
+    }
+
+    @Override
+    public List<Employee> findByEmployeeNameAndDesignation(String employeeName, String designation) {
+        return employeeRepo.findByEmployeeNameAndDesignation(employeeName,designation);
+    }
+
+    @Override
+    public List<Employee> findBySalaryGreaterThan(Integer salary) {
+        return employeeRepo.findBySalaryGreaterThan(salary);
+    }
+
+    @Override
+    public List<Employee> findByDesignationContains(String designation) {
+        return employeeRepo.findByDesignationContains(designation);
+    }
+
+    @Override
+    public List<Employee> findBySalaryBetween(Integer salary1, Integer salary2) {
+        return employeeRepo.findBySalaryBetween(salary1,salary2);
+    }
+
+    @Override
+    public List<Employee> findByEmployeeNameLike(String employeeName) {
+        return employeeRepo.findByEmployeeNameLike(employeeName);
+    }
 }

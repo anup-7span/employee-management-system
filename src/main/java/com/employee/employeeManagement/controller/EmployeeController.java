@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -41,5 +42,39 @@ public class EmployeeController {
     @DeleteMapping("/{employeeId}")
     public void delete(@PathVariable Integer employeeId){
         service.deleteEmp(employeeId);
+    }
+
+    //finder methods
+    @GetMapping("/employeeName/{employeeName}")
+    public List<Employee> findByName(@PathVariable String employeeName){
+        return service.findByName(employeeName);
+    }
+
+    //using requestParam
+    /*
+        @GetMapping("/employeeName")
+        public List<Employee> findByName(@RequestParam String employeeName){
+        return service.findByName(employeeName);
+    }
+    */
+    @GetMapping("/employeeName/designation")
+    public List<Employee> findByNameAndDes(@RequestParam String employeeName,String designation){
+        return service.findByEmployeeNameAndDesignation(employeeName,designation);
+    }
+    @GetMapping("/salary")
+    public List<Employee> findBySalary(@RequestParam Integer salary){
+        return service.findBySalaryGreaterThan(salary);
+    }
+    @GetMapping("/designation")
+    public List<Employee> findByContains(@RequestParam String designation){
+        return service.findByDesignationContains(designation);
+    }
+    @GetMapping("/salaryBetween")
+    public List<Employee> findBySalaryBetween(@RequestParam Integer salary1, Integer salary2) {
+        return service.findBySalaryBetween(salary1,salary2);
+    }
+    @GetMapping("/employeeNameLike/{employeeName}")
+    public List<Employee> findByEmployeeNameLike(@PathVariable String employeeName) {
+        return service.findByEmployeeNameLike(employeeName);
     }
 }

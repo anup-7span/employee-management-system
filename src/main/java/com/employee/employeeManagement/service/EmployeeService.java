@@ -14,4 +14,15 @@ public interface EmployeeService {
     Employee update(Employee employee);
 
     String deleteEmp(Integer employeeId);
+
+    List<Employee> findByName(String employeeName);
+    List<Employee> findByEmployeeNameAndDesignation(String employeeName,String designation);
+
+    List<Employee> findBySalaryGreaterThan(Integer salary);
+
+    List<Employee> findByDesignationContains(String designation);
+
+    List<Employee> findBySalaryBetween(Integer salary1,Integer salary2);
+
+    List<Employee> findByEmployeeNameLike(String employeeName);
 }
