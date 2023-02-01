@@ -96,4 +96,29 @@ public class ServiceImpl implements EmployeeService{
         return employeeRepo.findAll(pageable);
     }
 
+    @Override
+    public List<Employee> findAllEmployee() {
+        return employeeRepo.findAllEmployee();
+    }
+
+    @Override
+    public List<Object[]> findByName() {
+        return employeeRepo.findByName();
+    }
+
+    @Override
+    public List<Employee> findAllEmployeeByName(String employeeName) {
+        return employeeRepo.findAllEmployeeByName(employeeName);
+    }
+
+    @Override
+    public List<Employee> minMaxSalary(Integer min, Integer max) {
+        return employeeRepo.findMinMaxSalary(min,max);
+    }
+
+    @Override
+    public List<Employee> findAllEmployeeByNameNativeQuery(String employeeName) {
+        return employeeRepo.findAllEmployeeByNameNativeQuery(employeeName);
+    }
+
 }

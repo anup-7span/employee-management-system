@@ -3,6 +3,7 @@ package com.employee.employeeManagement.service;
 import com.employee.employeeManagement.entity.Employee;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -32,4 +33,9 @@ public interface EmployeeService {
 
     Page<Employee> pageableSort(Integer page, Integer size);
 
+    List<Employee> findAllEmployee();
+    List<Object[]>findByName();
+    List<Employee>findAllEmployeeByName(String employeeName);
+    List<Employee>minMaxSalary(Integer min,Integer max);
+    List<Employee>findAllEmployeeByNameNativeQuery(String employeeName);
 }

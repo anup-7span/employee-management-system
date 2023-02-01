@@ -90,4 +90,28 @@ public class EmployeeController {
     public Page<Employee> pageableSort(@RequestParam Integer page, Integer size){
         return service.pageableSort(page,size);
     }
+
+    //JPQL
+    @GetMapping("/JPQL")
+    public List<Employee> findAllEmployee(){
+        return service.findAllEmployee();
+    }
+    @GetMapping("/JPQL/name")
+    public List<Object[]> findByName(){
+        return service.findByName();
+    }
+    @GetMapping("/JPQL/findByName")
+    public List<Employee> findByEmployeeName(@RequestParam String name){
+        return service.findAllEmployeeByName(name);
+    }
+
+    @GetMapping("/JPQL/salary")
+    public List<Employee> findMinMaxSalary(@RequestParam Integer s1,Integer s2){
+        return service.minMaxSalary(s1,s2);
+    }
+    //native sql
+    @GetMapping("/JPQL/findByName/native")
+    public List<Employee> findByEmployeeNameNative(@RequestParam String name) {
+        return service.findAllEmployeeByNameNativeQuery(name);
+    }
 }
