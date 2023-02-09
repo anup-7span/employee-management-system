@@ -1,6 +1,8 @@
 package com.employee.employeeManagement.controller;
 
+import com.employee.employeeManagement.entity.Emp;
 import com.employee.employeeManagement.entity.Employee;
+import com.employee.employeeManagement.entity.Manager;
 import com.employee.employeeManagement.service.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -113,5 +115,14 @@ public class EmployeeController {
     @GetMapping("/JPQL/findByName/native")
     public List<Employee> findByEmployeeNameNative(@RequestParam String name) {
         return service.findAllEmployeeByNameNativeQuery(name);
+    }
+    //Inheritance mapping
+    @PostMapping("/inheritance")
+    public Emp addEmp(@RequestBody Emp emp) {
+        return service.addEmp(emp);
+    }
+    @PostMapping("/manager")
+     public Manager addManager(@RequestBody Manager manager){
+        return service.addManager(manager);
     }
 }

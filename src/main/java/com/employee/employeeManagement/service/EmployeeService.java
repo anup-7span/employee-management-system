@@ -1,6 +1,8 @@
 package com.employee.employeeManagement.service;
 
+import com.employee.employeeManagement.entity.Emp;
 import com.employee.employeeManagement.entity.Employee;
+import com.employee.employeeManagement.entity.Manager;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.query.Param;
@@ -38,4 +40,7 @@ public interface EmployeeService {
     List<Employee>findAllEmployeeByName(String employeeName);
     List<Employee>minMaxSalary(Integer min,Integer max);
     List<Employee>findAllEmployeeByNameNativeQuery(String employeeName);
+
+    Emp addEmp(Emp emp);
+    Manager addManager(Manager manager);
 }

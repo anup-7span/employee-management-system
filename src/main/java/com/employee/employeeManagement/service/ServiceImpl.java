@@ -1,6 +1,8 @@
 package com.employee.employeeManagement.service;
 
+import com.employee.employeeManagement.entity.Emp;
 import com.employee.employeeManagement.entity.Employee;
+import com.employee.employeeManagement.entity.Manager;
 import com.employee.employeeManagement.repo.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -9,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -118,7 +121,19 @@ public class ServiceImpl implements EmployeeService{
 
     @Override
     public List<Employee> findAllEmployeeByNameNativeQuery(String employeeName) {
+
+        List<Employee> employees = new ArrayList<>();
         return employeeRepo.findAllEmployeeByNameNativeQuery(employeeName);
+    }
+
+    @Override
+    public Emp addEmp(Emp emp) {
+        return employeeRepo.save(emp);
+    }
+
+    @Override
+    public Manager addManager(Manager manager) {
+        return employeeRepo.save(manager);
     }
 
 }
