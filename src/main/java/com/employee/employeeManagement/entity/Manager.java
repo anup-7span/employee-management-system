@@ -14,11 +14,11 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @Entity
-@PrimaryKeyJoinColumn(name = "id")
+//@PrimaryKeyJoinColumn(name = "id")
 //@DiscriminatorValue("man")
-public class Manager extends Employee {
-/*    @Id
+public class Manager {
+    @Id
     public Integer id;
-    @GeneratedValue(strategy = GenerationType.IDENTITY)*/
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public String managerName;
 }

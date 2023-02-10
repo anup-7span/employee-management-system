@@ -41,6 +41,6 @@ public interface EmployeeService {
     List<Employee>minMaxSalary(Integer min,Integer max);
     List<Employee>findAllEmployeeByNameNativeQuery(String employeeName);
 
-    Emp addEmp(Emp emp);
-    Manager addManager(Manager manager);
+ //   Emp addEmp(Emp emp);
+  //  Manager addManager(Manager manager);
 }

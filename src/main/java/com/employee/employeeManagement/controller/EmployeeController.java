@@ -117,12 +117,12 @@ public class EmployeeController {
         return service.findAllEmployeeByNameNativeQuery(name);
     }
     //Inheritance mapping
-    @PostMapping("/inheritance")
+/*    @PostMapping("/inheritance")
     public Emp addEmp(@RequestBody Emp emp) {
         return service.addEmp(emp);
     }
     @PostMapping("/manager")
      public Manager addManager(@RequestBody Manager manager){
         return service.addManager(manager);
-    }
+    }*/
 }
