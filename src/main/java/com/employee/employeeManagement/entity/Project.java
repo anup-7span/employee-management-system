@@ -23,7 +23,7 @@ public class Project {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int projectId;
     public String projectName;
-    @ManyToMany(mappedBy = "projects")
-    public List<Employee> employeeList;
+/*    @ManyToMany(mappedBy = "projects")
+    public List<Employee> employeeList;*/
 
 }

@@ -26,10 +26,10 @@ public class ServiceImpl implements EmployeeService{
     public Employee addEmployee(Employee employee){
         try {
         employeeRepo.save(employee);
-        for(Project emp:employee.getProjects()) {
+  /*      for(Project emp:employee.getProjects()) {
             employee.addProject(emp);
             employeeRepo.save(employee);
-        }
+        }*/
         }catch (Exception e){
         }
         return employee;
