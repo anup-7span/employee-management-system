@@ -4,6 +4,7 @@ import com.employee.employeeManagement.entity.Emp;
 import com.employee.employeeManagement.entity.Employee;
 import com.employee.employeeManagement.entity.Manager;
 import com.employee.employeeManagement.entity.PhoneNumber;
+import com.employee.employeeManagement.entity.Project;
 import com.employee.employeeManagement.repo.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -24,9 +25,9 @@ public class ServiceImpl implements EmployeeService{
     @Override
     public Employee addEmployee(Employee employee){
         try {
-        //employeeRepo.save(employee);
-        for(PhoneNumber emp:employee.getPhoneNumbers()) {
-            employee.addPhoneNumber(emp);
+        employeeRepo.save(employee);
+        for(Project emp:employee.getProjects()) {
+            employee.addProject(emp);
             employeeRepo.save(employee);
         }
         }catch (Exception e){
